@@ -1,0 +1,179 @@
+/* Farnaz Safari — academic website
+   Single-column layout in the style of hand-coded economist sites
+   (Jayachandran / Rao pattern): narrow measure, serif type, navy links. */
+
+:root {
+  --text: #1d1d1f;
+  --muted: #666666;
+  --link: #b8860b;
+  --rule: #dddddd;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: Charter, Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--text);
+  background: #fbfbfa;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* --- Navigation --- */
+nav {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.75rem;
+}
+nav a { margin-right: 1.5rem; color: var(--link); }
+nav a.current { color: var(--text); font-weight: bold; }
+
+/* --- Headings --- */
+h1 {
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0 0 0.25rem;
+}
+.subtitle {
+  color: var(--link);
+  margin: 0 0 1.75rem;
+}
+h2 {
+  font-size: 1.2rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--rule);
+  font-weight: bold;
+}
+h2:first-of-type { margin-top: 0; }
+
+/* --- Home page layout --- */
+.home-grid {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.home-grid .bio { flex: 1; }
+.portrait {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .home-grid { flex-direction: column; }
+  .portrait { width: 160px; }
+}
+
+.contact {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.contact a { white-space: nowrap; }
+
+.market-notice {
+  margin-top: 1.25rem;
+  padding: 0.6rem 0.9rem;
+  border-left: 3px solid var(--link);
+  background: #f5f7fa;
+  font-size: 0.95rem;
+}
+
+/* --- References grid --- */
+.refs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+  font-size: 0.95rem;
+}
+@media (max-width: 560px) { .refs { grid-template-columns: 1fr; } }
+.refs .name { font-weight: bold; }
+.refs .role { color: var(--muted); }
+
+/* --- Paper entries --- */
+.paper { margin-bottom: 1.9rem; }
+.paper .title { font-weight: bold; }
+.paper .coauthors { display: block; }
+.paper .status {
+  display: block;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.paper .links {
+  display: block;
+  font-size: 0.95rem;
+  margin-top: 0.15rem;
+}
+.paper .links a { margin-right: 0.9rem; }
+
+.abstract-inline {
+  margin-top: 0.6rem;
+  font-size: 0.97rem;
+}
+.abstract-inline p { margin: 0 0 0.6rem; }
+
+details { margin-top: 0.35rem; font-size: 0.97rem; }
+details summary {
+  cursor: pointer;
+  color: var(--link);
+  font-size: 0.9rem;
+  font-family: Helvetica, Arial, sans-serif;
+}
+details[open] summary { margin-bottom: 0.4rem; }
+details p { margin: 0 0 0.6rem; }
+
+/* --- Teaching lists --- */
+.teach-item { margin-bottom: 1.1rem; }
+.teach-item .course { font-weight: bold; }
+.teach-item .detail { color: var(--muted); font-size: 0.95rem; display: block; }
+
+/* --- Footer --- */
+footer {
+  margin-top: 3.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* --- Analytics consent banner --- */
+.consent {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  background: #fbfbfa;
+  border-top: 1px solid var(--rule);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.consent-buttons { white-space: nowrap; }
+.consent button {
+  font: inherit;
+  margin-left: 0.4rem;
+  padding: 0.25rem 0.8rem;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.consent button[data-choice="yes"] { border-color: var(--link); color: var(--link); }
